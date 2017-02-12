@@ -4,10 +4,28 @@ const webpack = require('webpack');
 module.exports={
 	context:path.resolve(__dirname,'./src'),
 	entry:{
+		home: './home.js',
 		app:'./app.js'
 	},
 	output:{
 		path:path.resolve(__dirname,'./dist'),
-		filename:'[name].bundle.js'
+		filename:'[name].bundle.js',
+		publicPath:'/assets',
 	},
+	devServer:{
+		contentBase:path.resolve(__dirname,'./src'),
+	},
+	module:{
+		rules:[{
+			test:/\.js$/,
+			use:[
+				{
+					loader:'babel-loader',
+					options:{
+						presets:['es2015']
+					}
+				}],
+		}],
+	},
+	plugins:[ ],
 };
