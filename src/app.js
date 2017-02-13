@@ -1,3 +1,15 @@
 import moment from 'moment';
-var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
-console.log(rightNow);
+import Render from './components/render';
+
+
+/**
+ * Main Entry
+ */
+const target = document.createElement('div');
+target.className = 'wrapper';
+
+window.onload=()=>{
+    document.body.appendChild(target);
+    const demo = new Render(target);
+    return demo;
+}
